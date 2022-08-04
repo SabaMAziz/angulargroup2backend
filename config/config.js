@@ -1,8 +1,8 @@
 // for secret keys
 // mongodb+srv://appuser:<password>@cluster2022.k1xxx.mongodb.net/test
+let environment = require('dotenv').config()
 
 module.exports ={
-    "ATLASDB" : "mongodb+srv://readyhelp:0lWG4LbmCqJuTPIP@cluster3.mwtod.mongodb.net/tickets",
-    "SECRETKEY" :" ABCDEFG"
- 
+    "ATLASDB" : environment.ATLASDB,
+    "SECRETKEY" : environment.SECRETKEY 
  }

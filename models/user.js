@@ -42,7 +42,10 @@ let UserSchema = mongoose.Schema(
             type: Date,
             default: Date.now
         },
-        Admin: Boolean,         
+        Admin: {
+            type: Boolean,
+            default: false
+        },         
     },
     {
         collection: "user"

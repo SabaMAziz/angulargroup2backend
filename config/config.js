@@ -5,4 +5,4 @@ let environment = require('dotenv').config()
 module.exports ={
     "ATLASDB" : environment.ATLASDB,
     "SECRETKEY" : environment.SECRETKEY 
- }
+}

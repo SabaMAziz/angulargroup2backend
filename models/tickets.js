@@ -16,16 +16,14 @@ let tickets = mongoose.Schema(
       ticketStatus: String,
       ticketDescription: String,
       recordnum: Date,
-      ticketPriority: String
-
+      ticketPriority: String,
+      comment: String,
+      itArray: []
     },
     {
         collection: "tickets"
     }
     
 );
-
-
-
 
 module.exports = mongoose.model('Tickets', tickets);

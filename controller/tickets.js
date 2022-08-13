@@ -6,6 +6,7 @@
 */
 
 let tickets = require('../models/tickets');
+let user = require('../models/user');
 
 function getErrorMessage(err){
     if (err.errors) {
@@ -58,6 +59,7 @@ module.exports.processEdit = (req, res, next) => {
     try{
 
             let id = req.params.id
+            let newUser = user(req.body)
 
             let updatedItem = tickets({   
 
@@ -66,8 +68,13 @@ module.exports.processEdit = (req, res, next) => {
                 email: req.body.email,
                 ticketStatus: req.body.ticketStatus,
                 ticketDescription: req.body.ticketDescription,
-                ticketPriority: req.body.ticketPriority
+                ticketPriority: req.body.ticketPriority,
+                comment: req.body.comment,
+                itArray: req.body.itArray                             
             });
+
+            let obj = new Object(newUser, new Date, updatedItem.comment);            
+            updatedItem.itArray.push(obj);             
         
             tickets.updateOne({_id: id}, updatedItem, (err) => {
                 if(err)

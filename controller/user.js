@@ -54,7 +54,7 @@ module.exports.signup = function(req, res, next) {
              return res.status(400).json (  // added for angular code
              {
                  sucess: false,
-                 message: getErrorMessage(err)
+                 message: message
              }
          );
          

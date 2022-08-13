@@ -6,6 +6,7 @@
 */
 
 let tickets = require('../models/tickets');
+let user = require('../models/user');
 
 function getErrorMessage(err){
     if (err.errors) {
@@ -58,6 +59,7 @@ module.exports.processEdit = (req, res, next) => {
     try{
 
             let id = req.params.id
+            let newUser = user(req.body)
 
             let updatedItem = tickets({   
 
@@ -67,13 +69,12 @@ module.exports.processEdit = (req, res, next) => {
                 ticketStatus: req.body.ticketStatus,
                 ticketDescription: req.body.ticketDescription,
                 ticketPriority: req.body.ticketPriority,
-                //iteration.username
-                //iteration.date: new Date();
-                //iteration.comment: req.body.comment //need to figure out on the backend how to create the iteration                
-                                                      //dont think any of this is right                
+                comment: req.body.comment,
+                itArray: req.body.itArray                             
             });
 
-            //tickets.itArray.push(iteration); 
+            let obj = new Object(newUser, new Date, updatedItem.comment);            
+            updatedItem.itArray.push(obj);             
         
             tickets.updateOne({_id: id}, updatedItem, (err) => {
                 if(err)

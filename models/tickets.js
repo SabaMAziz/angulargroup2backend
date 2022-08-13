@@ -17,11 +17,7 @@ let tickets = mongoose.Schema(
       ticketDescription: String,
       recordnum: Date,
       ticketPriority: String,
-      iteration: {
-        username: String, 
-        date: Date,
-        comment: String
-      },
+      comment: String,
       itArray: []
     },
     {

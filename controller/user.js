@@ -85,7 +85,7 @@ module.exports.signin = function(req,res,next) {
       return res.status(400).json(
           {
               success: false,
-              message: err || info.getErrorMessage
+              message: err || info.message
           }
       );
     }

@@ -67,7 +67,7 @@ function errorHandlerMiddleware(error, request, response, next) {
 			 * Set a JSON formatted response body.
 			 * Response header: `Content-Type: `application/json`
 			 */
-			response.json({ message: errorResponse.body });
+			response.json(errorResponse);
 		},
 		/**
 		 * Callback to run when none of the others are matched.
@@ -77,7 +77,7 @@ function errorHandlerMiddleware(error, request, response, next) {
 			 * Set a plain text response body.
 			 * Response header: `Content-Type: text/plain`
 			 */
-			response.type("text/plain").send(errorResponse.body);
+			response.type("text/plain").send(errorResponse.message);
 		},
 	});
 

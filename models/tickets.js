@@ -30,7 +30,4 @@ let tickets = mongoose.Schema(
     
 );
 
-
-
-
 module.exports = mongoose.model('Tickets', tickets);

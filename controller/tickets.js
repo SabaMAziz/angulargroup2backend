@@ -66,8 +66,14 @@ module.exports.processEdit = (req, res, next) => {
                 email: req.body.email,
                 ticketStatus: req.body.ticketStatus,
                 ticketDescription: req.body.ticketDescription,
-                ticketPriority: req.body.ticketPriority
+                ticketPriority: req.body.ticketPriority,
+                //iteration.username
+                //iteration.date: new Date();
+                //iteration.comment: req.body.comment //need to figure out on the backend how to create the iteration                
+                                                      //dont think any of this is right                
             });
+
+            //tickets.itArray.push(iteration); 
         
             tickets.updateOne({_id: id}, updatedItem, (err) => {
                 if(err)

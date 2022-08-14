@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 module.exports ={
-    "ATLASDB" : process.env. ATLASDB,
-    "SECRETKEY" :process.env. SECRETKEY
+    "ATLASDB" : "mongodb+srv://readyhelp:0lWG4LbmCqJuTPIP@cluster3.mwtod.mongodb.net/tickets",
+    "SECRETKEY" :" ABCDEFG"
  
  }
